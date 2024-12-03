@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div {
+            position: relative;
+            width: 300px;
+            /* height: 30px; */
+            /* background-color: skyblue; */
+            margin: 50px auto;
+            border-bottom: 1px solid black;
+
+        }
+
+        input {
+            
+            height: 30px;
+            width: 300px;
+            border: 0;
+            outline: none;
+        }
+
+        img {
+            position: absolute;
+            width: 20px;
+            right: 10px;
+            top: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <input type="password">
+        <img src="./imges/close.png" alt="">
+    </div>
+
+
+
+    <script>
+
+        // 登录页面
+        const inputPassword = document.querySelector('input[type="password"]');
+        const div = document.querySelector('div');
+        const img = document.querySelector('img');
+
+
+        flag = true;
+        img.addEventListener('click', function() {
+            if (flag) {
+                inputPassword.type = 'text';
+                flag = false;
+            } else {
+                inputPassword.type = 'password';
+                flag = true;
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .img,img{
+            position: relative;
+            width: 500px;
+            height: 300px;
+            cursor:move;
+        }
+
+        .magnify{
+            width: 600px;
+            height: 600px;
+            display: none;
+            background-repeat: no-repeat;
+            background-size:  2000px 1200px;
+        }
+        .mask{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background: skyblue;
+            opacity: 0.6;
+            display: none;
+        }
+        .disappear{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="img">
+        <img src="./imges/qiu.jpg" alt="">
+        <div class="mask disappear"></div>
+    </div>
+    <div class="magnify"></div>
+
+
+
+    <script>
+        const mask = document.querySelector('.mask')
+        const imgBox = document.querySelector('.img')
+        const magnify = document.querySelector('.magnify')
+        
+        imgBox.addEventListener('mousemove',function(e){
+            const x =e.clientX-mask.offsetWidth/2
+            const y =e.clientY-mask.offsetHeight/2
+            mask.style.left = x+'px'
+            mask.style.top =y+'px'
+            magnify.style.backgroundPositionX=x+'px'
+            magnify.style.backgroundPositionY=y+'px'
+            
+        })
+        imgBox.addEventListener('mouseover',function(){
+        //    mask.classList.remove('disappear')
+           mask.style.display ='block'
+           magnify.style.display ='block'
+            magnify.style.backgroundImage = `url(./imges/qiu.jpg)`   
+        })
+        imgBox.addEventListener('mouseleave',function(){
+            // mask.classList.add('disappear')
+            mask.style.display ='none'
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* .ck:checked表示被勾选的复选框 */
+        .ck:checked{
+            width: 20px;
+            height: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <input type="checkbox" class="ck">尼古拉斯<br>
+    <input type="checkbox" class="ck">莱昂纳多<br>
+    <input type="checkbox" class="ck">约翰尼<br>
+    <input type="checkbox" class="ck">布拉德<br>
+    <input type="checkbox" class="ckall"><button>全选</button><br><br>
+    <button>全不选</button><br><br>
+    <button>反选</button><br>
+
+
+
+    <script>
+        const btns = document.querySelectorAll('button');
+        const inputs = document.querySelectorAll('.ck');
+        const ckall = document.querySelector('.ckall');
+
+        // 选中的三个形式：1，用户点击，2，标签上添加checked属性 3，js中checked = true
+
+        // 全选按钮
+        btns[0].addEventListener('click', () => {
+            inputs.forEach(input => {
+                input.checked = true
+            })
+        })
+
+        // 全不选
+        btns[1].addEventListener('click', () => {
+            inputs.forEach(input => {
+                input.checked = false
+            })
+        })
+
+        // 反选
+        btns[2].addEventListener('click', () => {
+            inputs.forEach(input => {
+                input.checked = !input.checked
+            })
+        })
+
+       //全选框
+       ckall.addEventListener('click', () => {
+            inputs.forEach(input => {
+                input.checked = ckall.checked
+            })
+        })
+        // 给小复选框添加点击事件
+        inputs.forEach(input => {
+            input.addEventListener('click',()=>{
+                console.log(document.querySelectorAll('.ck:checked').length)
+                console.log(document.querySelectorAll('.ck:checked').length ==inputs.length)
+                ckall.checked = document.querySelectorAll('.ck:checked').length == inputs.length             
+            })
+        })
+    </script>
+</body>
+
+</html>

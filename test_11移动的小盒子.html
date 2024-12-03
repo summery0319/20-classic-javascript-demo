@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+ 
+        .box{
+            position: relative;
+            /* 此处不能添加margin：因为一旦添加margin  box.offsetLeft就不等于box.style.left
+            1、offsetLeft包括的自身的margin值。 
+            offsetLeft值，比style.left多出一个margin值。 
+            2、 style.left和style.width值都需要先定义，而且必须要内联在html里，
+            如果定义在css里，则style.left取到的值为空。 
+            而offsetLeft则可以取到，无需事先定义div的位置。 */
+            /* margin: 20px;  */
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="box"></div>
+    <button class="bt1">点击开始</button>
+    <button class="bt2">点击停止</button>
+
+    <script>
+        const btStart =document.querySelector('.bt1')
+        const btStop =document.querySelector('.bt2')
+        const box =document.querySelector('.box')
+
+        function animate(obj,target){
+            
+            clearInterval(obj.timer)
+            obj.timer =  setInterval(function(){
+                let step = (target-obj.offsetLeft)/10
+                step = step>0? Math.ceil(step):Math.floor(step)
+                if(obj.offsetLeft>=target){
+                    clearInterval(obj.timer)
+                }
+            obj.style.left = obj.offsetLeft + step  +'px'
+        },15)
+        }
+        
+        btStart.addEventListener('click',function(){
+            const width = window.innerWidth - box.offsetWidth
+            console.log(width)
+            animate(box,width)
+        })
+
+        btStop.addEventListener('click',function(){
+         clearInterval(box.timer)
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+* {
+        /* 初始化 取消页面的内外边距 */
+        padding: 0;
+        margin: 0;
+      }
+       
+       body{
+        /* display: flex;
+        justify-content: center;
+        align-items: center; */
+        perspective: 800px; 
+       }
+       .container{
+        perspective: 1500px; 
+       }
+
+         .box{
+            /* perspective: 1300px; */
+            position: relative;
+            width: 400px;
+            height: 300px;
+            margin:  200PX auto;
+            transform-style: preserve-3d;
+            /* background-color: skyblue; */
+            animation: rotated 10s linear infinite;
+        }
+        .box img{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 400px;
+            height: 300px;
+            /* background: url(./images/a1.jpg) no-repeat contain; */
+            
+       
+        }
+
+        .p1{ 
+            transform: rotateY(0deg) translateZ(400px);
+         } 
+      
+         .p2 {
+            transform: rotateY(60deg) translateZ(400px); 
+        }
+      
+         .p3 {
+            transform: rotateY(120deg) translateZ(400px); 
+        }
+      
+         .p4 {
+            transform: rotateY(180deg) translateZ(400px); 
+        }
+      
+         .p5 {
+            transform: rotateY(240deg) translateZ(400px); 
+        }
+         .p6 {
+            transform: rotateY(300deg) translateZ(400px); 
+        }
+      
+
+          
+        @keyframes rotated{
+            0%{
+                transform: rotateY(0deg);
+            }
+            50%{
+                transform: rotateY(180deg) ;
+            }
+            100%{
+                transform: rotateY(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+
+           <img class="photo p1" src="./images/a1.jpg" alt="">
+           <img class="photo p2" src="./images/a2.jpg" alt="">
+           <img class="photo p3" src="./images/a3.jpg" alt="">
+           <img class="photo p4" src="./images/a4.jpg" alt="">
+           <img class="photo p5" src="./images/a5.jpg" alt="">
+           <img class="photo p6" src="./images/a6.jpg" alt="">
+       
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .content{
+            width: 500px;
+            margin: 0 auto;
+            padding-top: 50px;
+        }
+        .search{
+            margin-bottom: 20px;
+        }
+        #search-input{
+            width: 400px;
+            height: 30px;
+            padding: 5px;
+            border-radius: 5px;
+            
+        }
+        #sub{
+            width: 80px;
+            height: 40px;
+            background-color: #087bc7;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+       .show{
+            display: none;
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            height: 300px;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="search">
+            <input type="text" id ="search-input" placeholder="请输入搜索内容">
+            <input type="submit" name="" id="sub">
+        </div>
+        <div class="show" id ="show"></div>
+    </div>
+
+    <script>
+        let arr = ['123','456','789','abc','def','ghi','jkl','mno','pqr','stu','vwx','yz']
+        var searchInput = document.getElementById("search-input");
+        var sub = document.getElementById("sub");
+        var show = document.querySelector(".show"); //获取显示结果的div
+         searchInput.addEventListener("keyup",function(){
+            show.style.display = "block"; //隐藏显示结果的div
+            let str = ''
+            arr.forEach(function(item){
+                if(item.indexOf(searchInput.value)!=-1){
+                    str += '<p>'+item+'</p>'
+                }
+            })
+            if(searchInput.value =='' || str == ''){
+                str = '<p>'+ 没有搜索到相关内容+'</p>'
+            }else{
+                show.innerHTML = str;
+            }
+            
+        })
+        searchInput.addEventListener("blur",function(){
+            show.style.display = "none"; //隐藏显示结果的div
+        })
+
+
+    </script>
+</body>
+</html>

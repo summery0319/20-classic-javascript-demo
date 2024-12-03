@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            margin: 0 auto;
+            width: 600px;
+            height: 500px;
+            background-color: beige;
+            border: solid 1px grey;
+        }
+
+        ul{
+            margin: 0 auto;
+            display: grid;
+            list-style: none;
+            grid-template-columns: repeat(6,80px);
+            grid-template-rows: repeat(6,60px);
+            gap: 10px;
+
+        }
+        li{
+            border: solid 1px black;
+            background: rgb(193, 193, 193);
+        }
+        .center{
+            margin: 10px auto;
+            width: 200px;
+            height: 70px;
+            border: 1px solid grey;
+        }
+        .checked{
+            background: rgb(255, 192, 76);
+            tex
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <div class="center">屏幕中央</div>
+    </div>
+
+    <script>
+        const ul = document.querySelector('ul')
+        ul.addEventListener('click',function(e){
+            let beat = e.target
+            console.dir(beat.nodeName)
+            if(beat.nodeName !='LI'){
+                return
+            }
+            beat.classList.toggle('checked')
+            if(beat.className.includes('checked')){
+                beat.innerHTML= '座位已选'
+            }else{
+                beat.innerHTML= ''
+            }
+        })
+    </script>
+</body>
+</html>

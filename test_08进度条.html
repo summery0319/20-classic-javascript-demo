@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .outter {
+            width: 300px;
+            height: 20px;
+            border: 1px solid red;
+        }
+
+        .inner {
+            width: 0;
+            height: 20px;
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="outter">
+        <div class="inner">
+            <span>0</span><span>%</span>
+        </div>
+    </div><br>
+    <button>安装</button>
+
+
+    <script>
+        // 逻辑：利用定时器进行递增操作（inner:width、百分数）
+        // 当里面的width达到300px的时候停止定时器
+        const btn = document.querySelector('button');
+        const inner = document.querySelector('.inner');
+        const span = document.querySelector('span');
+
+        let timer = null;
+        btn.addEventListener('click', () => {
+            let num = 0;
+            if (timer == null) {
+                timer = setInterval(() => {
+                    num += 10
+                    // 给宽递增
+                    inner.style.width = num + 'px'
+                    // 给百分比的数字递增
+                    span.innerHTML = Math.floor(num / 300 * 100)
+                    // 当宽达到300，清除定时器，不再加宽
+                    if (num == 300) {
+                        clearInterval(timer)
+                    }
+                }, 100)
+            }
+
+        })
+    </script>
+</body>
+
+</html>

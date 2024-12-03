@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .boxtop img{
+            width: 800px;
+            height: 500px;
+        }
+        .boxbottom img{
+            width: 100px;
+            height: 70px;
+        }
+    </style>
+</head>
+<body>
+   <div class="container">
+    <div class="boxtop">
+        <img src="./imges/cao.jpg" alt="">
+    </div>
+    <div class="boxbottom">
+        <img src="./imges/gu.jpg" alt="">
+        <img src="./imges/cao.jpg" alt="">
+        <img src="./imges/qiu.jpg" alt="">
+        <img src="./imges/san.jpg" alt="">
+    </div>
+   </div>
+
+    
+
+
+    <script>
+        const imgs = document.querySelectorAll('img');
+
+        imgs.forEach(img=>{
+            img.addEventListener('mouseover',()=>{
+                imgs[0].src = img.src
+                img.style.border = '5px solid #ccc'
+            })        
+            img.addEventListener('mouseout',()=>{
+                img.style.border = ''
+            })        
+        })
+
+
+    </script>
+</body>
+</html>

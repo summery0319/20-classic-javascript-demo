@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div {
+            width: 300px;
+            height: 300px;
+            margin: 30px auto;
+            background-color: #eee;
+            padding: 20px;
+        }
+        button{
+            margin: 30px 25px;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <div>
+        <p>商品：水果</p>
+        <p>原价：1000元</p>
+        <p>现价：800元</p>
+        <p>总价：500元</p>
+        <p>地址：北京市海淀区西二旗</p>
+        <button id="btn">取消</button> 
+        <button id="btn">支付</button> 
+    </div>
+
+
+    <script>
+        const btn = document.querySelectorAll('button');
+        btn[1].addEventListener('click', function(){
+            if(confirm('您确定要支付吗？')){
+                alert('支付成功');
+                location.href = './test_02支付成功.html';
+            }
+        });
+        btn[0].addEventListener('click', function(){
+            confirm('您确定要取消支付吗？');
+            if(confirm('您确定要取消支付吗？')){
+                alert('取消成功');
+                location.href = 'http://www.baidu.com';
+            }
+        });
+    </script>
+</body>
+</html>

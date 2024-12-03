@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div{
+            position: relative;
+            width: 100px;
+            height: 100px;
+            background: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script>
+        const div = document.querySelector('div')
+
+        window.addEventListener('mousemove',function(e){
+            const mx= e.clientX//鼠标的x
+            const my= e.clientY//鼠标的y
+
+
+            const dw = div.offsetWidth//盒子的宽度
+            const dh = div.offsetHeight//盒子的高度
+
+            div.style.left = mx-dw/2+'px'
+            div.style.top = my-dh/2+'px'
+        })
+        
+    </script>
+</body
+</html>

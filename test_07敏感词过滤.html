@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        textarea{
+            width: 200px;
+            height: 100px;
+        }
+        .container{
+            width: 200px;
+            height: 100px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <h3>敏感词过滤</h3>
+    <textarea name="" id="" placeholder="请输入搜索内容"></textarea>
+    <button>发布</button>
+    <div class="container"></div>
+
+
+
+
+    <script>
+        const btn = document.querySelector('button');
+        const text = document.querySelector('textarea');
+        const con = document.querySelector('.container');
+
+        let reg = /金三胖|妈的/g
+        btn.addEventListener('click',()=>{
+            let newVue= text.value.replace(reg,'*')
+            console.log(newVue)
+            con.innerHTML = newVue
+        })
+    </script>
+</body>
+</html>

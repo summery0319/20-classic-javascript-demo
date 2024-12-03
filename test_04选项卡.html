@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        
+        img {
+            width: 700px;
+            height: 400px;
+            margin: 30px auto;
+            padding: 20px;
+            display: none;
+        }
+        ul{
+            display: flex;
+           list-style: none;
+           font-size: 20px;
+        }
+        li{
+            padding: 20px;
+            margin: 0 auto;
+            border: 1px solid grey;
+            background: #ddd;
+        }
+        li:hover{
+            background: orange;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>夏秋冬</li>
+        <li>春秋冬</li>
+        <li>春夏冬</li>
+        <li>春夏秋</li>
+    </ul>
+
+    <div>
+        <img src="./imges/gu.jpg" alt="" style="display: block;">
+        <img src="./imges/lv.jpg" alt="">
+        <img src="./imges/qiu.jpg" alt="">
+        <img src="./imges/cao.jpg" alt="">
+    </div>
+    <script>
+        const lis = document.querySelectorAll('li')
+        const imgs = document.querySelectorAll('img')
+
+        lis.forEach((li,index)=>{
+            li.addEventListener('click',function(){
+                // 排他思想，触发点击事件后，先把所有的图片隐藏，再把选中的图片显示出来
+                imgs.forEach(img=>{
+                    img.style = 'display:none'
+                })
+                imgs[index].style ='display: block;'
+            })
+        })
+    </script>
+</body>
+</html>

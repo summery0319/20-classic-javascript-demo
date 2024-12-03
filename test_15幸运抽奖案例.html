@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      ul {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 5px;
+        list-style: none;
+      }
+      .box {
+        padding: 10px;
+        margin: 30px;
+        width: 320px;
+        height: 320px;
+        border: solid 2px skyblue;
+        border-radius: 5px;
+      }
+      li {
+        width: 100px;
+        height: 100px;
+        color: white;
+        background: rgb(67, 65, 171);
+        border-radius: 5px;
+        text-align: center;
+        line-height: 100px;
+        cursor: default;
+      }
+      img {
+        width: 100px;
+        height: 100px;
+      }
+      .mask {
+        background: url(./images/mask.png);
+        opacity: 0.5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <ul>
+        <li><img src="./images/1.png" alt="" /></li>
+        <li><img src="./images/2.png" alt="" /></li>
+        <li><img src="./images/3.png" alt="" /></li>
+        <li><img src="./images/4.png" alt="" /></li>
+        <li class="btn">开始抽奖</li>
+        <li><img src="./images/5.png" alt="" /></li>
+        <li><img src="./images/6.png" alt="" /></li>
+        <li><img src="./images/7.png" alt="" /></li>
+        <li><img src="./images/8.png" alt="" /></li>
+      </ul>
+    </div>
+
+    <script>
+      const btn = document.querySelector('.btn')
+      const imges = document.querySelectorAll('img')
+        // 解构
+      const [img1, img2, img3, img8, img4, img7, img6, img5] = imges
+        //重新排序
+      const arr = [img1, img2, img3, img4, img5, img6, img7, img8]
+
+      btn.addEventListener('click', () => {
+        // 整体采用轮播图思想
+        let i = 0
+        function changeBackground() {
+            // 排他思想，切换下一个图案前清除所有图案样式
+          arr.forEach((element) => {
+            element.classList.remove('mask')
+          })
+          i++
+          if (i > 7) {
+            i = 0 //超出7之后重置为1
+          }
+          arr[i].classList.toggle('mask')
+        }
+
+        let timer = setInterval(changeBackground, 100)
+        // 采用时间作为随机数，用于清除定时器，也可以采用图案下标
+        const time = Math.floor(Math.random()*10000)+4000
+        console.log(time)
+         
+         setTimeout(function(){
+            clearInterval(timer)
+         },time)
+      })
+
+    </script>
+  </body>
+</html>
